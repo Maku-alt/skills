@@ -1,0 +1,13 @@
+archive/
+config/
+docs/
+references/
+scripts/
+
+catalog/*
+!catalog/skills-dictionary.md
+
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
