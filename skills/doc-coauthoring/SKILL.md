@@ -19,9 +19,9 @@ Offer the user a structured workflow for co-authoring the document. Explain the 
 
 1. **Context Gathering**: User provides all relevant context while Agent asks clarifying questions
 2. **Refinement & Structure**: Iteratively build each section through brainstorming and editing
-3. **Reader Testing**: Test the doc with a fresh Agent (no context) to catch blind spots before others read it
+3. **Reader Testing**: Test the doc with a fresh agent instance (no context) to catch blind spots before others read it
 
-Explain that this approach helps ensure the doc works well when others read it (including when they paste it into Agent). Ask if they want to try this workflow or prefer to work freeform.
+Explain that this approach helps ensure the doc works well when others read it (including when they paste it into ChatGPT or another assistant). Ask if they want to try this workflow or prefer to work freeform.
 
 If user declines, work freeform. If user accepts, proceed to Stage 1.
 
@@ -49,7 +49,7 @@ Inform them they can answer in shorthand or dump information however works best 
 **If user mentions editing an existing shared document:**
 - Use the appropriate integration to read the current state
 - Check for images without alt-text
-- If images exist without alt-text, explain that when others use Agent to understand the doc, Agent won't be able to see them. Ask if they want alt-text generated. If so, request they paste each image into chat for descriptive alt-text generation.
+- If images exist without alt-text, explain that when others use Claude to understand the doc, the assistant may not be able to see them. Ask if they want alt-text generated. If so, request they paste each image into chat for descriptive alt-text generation.
 
 ### Info Dumping
 
@@ -69,7 +69,7 @@ Advise them not to worry about organizing it - just get it all out. Offer multip
 
 **If integrations are available** (e.g., Slack, Teams, Google Drive, SharePoint, or other MCP servers), mention that these can be used to pull in context directly.
 
-**If no integrations are detected and in Agent.ai or Agent app:** Suggest they can enable connectors in their Agent settings to allow pulling context from messaging apps and document storage directly.
+**If no integrations are detected and in ChatGPT or another assistant app:** Suggest they can enable the relevant connectors in their app settings to allow pulling context from messaging apps and document storage directly.
 
 Inform them clarifying questions will be asked once they've done their initial dump.
 
@@ -77,7 +77,7 @@ Inform them clarifying questions will be asked once they've done their initial d
 
 - If user mentions team channels or shared documents:
   - If integrations available: Inform them the content will be read now, then use the appropriate integration
-  - If integrations not available: Explain lack of access. Suggest they enable connectors in Agent settings, or paste the relevant content directly.
+  - If integrations not available: Explain lack of access. Suggest they enable connectors in Claude settings, or paste the relevant content directly.
 
 - If user mentions entities/projects that are unknown:
   - Ask if connected tools should be searched to learn more
@@ -131,17 +131,7 @@ Ask if this structure works, or if they want to adjust it.
 
 Create the initial document structure with placeholder text for all sections.
 
-**If access to artifacts is available:**
-Use `create_file` to create an artifact. This gives both Agent and the user a scaffold to work from.
-
-Inform them that the initial structure with placeholders for all sections will be created.
-
-Create artifact with all section headers and brief placeholder text like "[To be written]" or "[Content here]".
-
-Provide the scaffold link and indicate it's time to fill in each section.
-
-**If no access to artifacts:**
-Create a markdown file in the working directory. Name it appropriately (e.g., `decision-doc.md`, `technical-spec.md`).
+Create a markdown file in the working directory, or use a connected document editor only when the user explicitly wants that destination. Name the local file appropriately (e.g., `decision-doc.md`, `technical-spec.md`).
 
 Inform them that the initial structure with placeholders for all sections will be created.
 
@@ -185,16 +175,10 @@ Based on what they've selected, ask if there's anything important missing for th
 
 ### Step 5: Drafting
 
-Use `str_replace` to replace the placeholder text for this section with the actual drafted content.
+Use the available file-editing mechanism to replace the placeholder text for this section with the actual drafted content. In Codex, prefer `apply_patch` for manual edits.
 
 Announce the [SECTION NAME] section will be drafted now based on what they've selected.
 
-**If using artifacts:**
-After drafting, provide a link to the artifact.
-
-Ask them to read through it and indicate what to change. Note that being specific helps learning for the next sections.
-
-**If using a file (no artifacts):**
 After drafting, confirm completion.
 
 Inform them the [SECTION NAME] section has been drafted in [filename]. Ask them to read through it and indicate what to change. Note that being specific helps learning for the next sections.
@@ -205,9 +189,8 @@ Provide a note: Instead of editing the doc directly, ask them to indicate what t
 ### Step 6: Iterative Refinement
 
 As user provides feedback:
-- Use `str_replace` to make edits (never reprint the whole doc)
-- **If using artifacts:** Provide link to artifact after each edit
-- **If using files:** Just confirm edits are complete
+- Use the available file-editing mechanism to make edits (never reprint the whole doc)
+- Confirm edits are complete and reference the file path
 - If user edits doc directly and asks to read it: mentally note the changes they made and keep them in mind for future sections (this shows their preferences)
 
 **Continue iterating** until user is satisfied with the section.
@@ -241,14 +224,14 @@ Ask if ready to move to Reader Testing, or if they want to refine anything else.
 
 ## Stage 3: Reader Testing
 
-**Goal:** Test the document with a fresh Agent (no context bleed) to verify it works for readers.
+**Goal:** Test the document with a fresh agent instance (no context bleed) to verify it works for readers.
 
 **Instructions to user:**
 Explain that testing will now occur to see if the document actually works for readers. This catches blind spots - things that make sense to the authors but might confuse others.
 
 ### Testing Approach
 
-**If access to sub-agents is available (e.g., in Agent Code):**
+**If access to sub-agents is available (e.g., in Codex with multi-agent tools):**
 
 Perform the testing directly without user involvement.
 
@@ -260,7 +243,7 @@ Generate 5-10 questions that readers would realistically ask.
 
 ### Step 2: Test with Sub-Agent
 
-Announce that these questions will be tested with a fresh Agent instance (no context from this conversation).
+Announce that these questions will be tested with a fresh agent instance (no context from this conversation).
 
 For each question, invoke a sub-agent with just the document content and the question.
 
@@ -287,20 +270,20 @@ Loop back to refinement for problematic sections.
 
 ---
 
-**If no access to sub-agents (e.g., the agent web interface):**
+**If no access to sub-agents (e.g., a web chat interface):**
 
 The user will need to do the testing manually.
 
 ### Step 1: Predict Reader Questions
 
-Ask what questions people might ask when trying to discover this document. What would they type into Agent.ai?
+Ask what questions people might ask when trying to discover this document. What would they type into ChatGPT?
 
 Generate 5-10 questions that readers would realistically ask.
 
 ### Step 2: Setup Testing
 
 Provide testing instructions:
-1. Open a fresh conversation with the agent
+1. Open a fresh ChatGPT conversation: https://chatgpt.com
 2. Paste or share the document content (if using a shared doc platform with connectors enabled, provide the link)
 3. Ask Reader Agent the generated questions
 
@@ -363,11 +346,11 @@ Announce document completion. Provide a few final tips:
 - Throughout, if context is missing on something mentioned, proactively ask
 - Don't let gaps accumulate - address them as they come up
 
-**Artifact Management:**
-- Use `create_file` for drafting full sections
-- Use `str_replace` for all edits
-- Provide artifact link after every change
-- Never use artifacts for brainstorming lists - that's just conversation
+**File Management:**
+- Use local markdown or document files for drafting full sections unless the user requests a connected document destination
+- Use the available file-editing mechanism for all edits
+- Reference the edited file path after material changes
+- Never create files for brainstorming lists - that's just conversation
 
 **Quality over Speed:**
 - Don't rush through stages

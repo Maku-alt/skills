@@ -379,6 +379,8 @@ Remember to parallelize solving tasks to avoid running out of context, then accu
 
 After creating your evaluation file, you can use the provided evaluation harness to test your MCP server.
 
+**Codex note:** the bundled `scripts/evaluation.py` harness is an upstream Anthropic/Claude runner. In Codex, use it only when Anthropic credentials and the expected model are intentionally configured. Otherwise, keep the evaluation XML and run the tasks with the available Codex/plugin test harness, MCP Inspector, or a manual fresh-agent pass, then record the runner used in the report.
+
 ## Setup
 
 1. **Install Dependencies**
@@ -389,7 +391,7 @@ After creating your evaluation file, you can use the provided evaluation harness
 
    Or install manually:
    ```bash
-   pip install agent mcp
+   pip install anthropic mcp
    ```
 
 2. **Set API Key**
@@ -485,7 +487,7 @@ positional arguments:
 optional arguments:
   -h, --help            Show help message
   -t, --transport       Transport type: stdio, sse, or http (default: stdio)
-  -m, --model           Codex model to use (default: agent-3-7-sonnet-20250219)
+  -m, --model           Claude model to use (default: claude-3-7-sonnet-20250219)
   -o, --output          Output file for report (default: print to stdout)
 
 stdio options:
@@ -596,7 +598,7 @@ If many evaluations fail:
 ### Timeout Issues
 
 If tasks are timing out:
-- Use a more capable model (e.g., `agent-3-7-sonnet-20250219`)
+- Use a more capable model (e.g., `claude-3-7-sonnet-20250219`)
 - Check if tools are returning too much data
 - Verify pagination is working correctly
 - Consider simplifying complex questions

@@ -1,12 +1,12 @@
-© 2025 Codex, PBC. All rights reserved.
+© 2025 Anthropic, PBC. All rights reserved.
 
 LICENSE: Use of these materials (including all code, prompts, assets, files,
 and other components of this Skill) is governed by your agreement with
-Codex regarding use of Codex's services. If no separate agreement
-exists, use is governed by Codex's Consumer Terms of Service or
+Anthropic regarding use of Anthropic's services. If no separate agreement
+exists, use is governed by Anthropic's Consumer Terms of Service or
 Commercial Terms of Service, as applicable:
-https://www.codex.com/legal/consumer-terms
-https://www.codex.com/legal/commercial-terms
+https://www.anthropic.com/legal/consumer-terms
+https://www.anthropic.com/legal/commercial-terms
 Your applicable agreement is referred to as the "Agreement." "Services" are
 as defined in the Agreement.
 
@@ -26,5 +26,5 @@ contrary, users may not:
 The receipt, viewing, or possession of these materials does not convey or
 imply any license or right beyond those expressly granted above.
 
-Codex retains all right, title, and interest in these materials,
+Anthropic retains all right, title, and interest in these materials,
 including all copyrights, patents, and other intellectual property rights.

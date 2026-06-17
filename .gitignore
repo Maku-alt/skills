@@ -4,6 +4,15 @@ docs/
 references/
 scripts/
 
+!skills/*/references/
+!skills/*/references/**
+!skills/*/scripts/
+!skills/*/scripts/**
+!skills/*/assets/
+!skills/*/assets/**
+!skills/*/eval-viewer/
+!skills/*/eval-viewer/**
+
 catalog/*
 !catalog/skills-dictionary.md
 
