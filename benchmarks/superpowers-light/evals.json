@@ -1,0 +1,20 @@
+{
+  "evals": [
+    {
+      "id": "planning",
+      "prompt": "Inspect README.md and the source tree. Produce an implementation plan for multi-currency refunds. Do not modify files. Make reasonable assumptions instead of asking questions. The plan must name exact files, data-model changes, provider failure behavior, decimal and rounding rules, audit-trail behavior, tests, rollout, and verification commands."
+    },
+    {
+      "id": "bugfix",
+      "prompt": "A checkout line currently accepts zero or negative quantities, producing invalid totals. Fix the root cause so non-positive quantities raise ValueError while valid totals remain unchanged. Add or update tests and run the relevant verification. Keep the change narrowly scoped."
+    },
+    {
+      "id": "audit",
+      "prompt": "Audit src/profile_store.py for security and correctness problems. Do not modify files. Return only actionable findings ordered by severity. For each finding include severity, exact file and line, impact, technical explanation, and a concrete remediation. Avoid speculative style comments."
+    },
+    {
+      "id": "parallel_audit",
+      "prompt": "Perform a focused audit of src/refunds.py, src/session_auth.py, and src/report_export.py. These areas are independent and you may use subagents if useful. Do not modify files. Return a deduplicated, severity-ordered list of actionable findings with exact file/line evidence, impact, and remediation. Avoid speculative style comments."
+    }
+  ]
+}

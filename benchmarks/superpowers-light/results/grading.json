@@ -1,0 +1,1158 @@
+[
+  {
+    "status": "valid",
+    "score": 76.67,
+    "expectations": [
+      {
+        "text": "Finds gold root cause: sql_injection",
+        "passed": false,
+        "evidence": "Insufficient root-cause evidence"
+      },
+      {
+        "text": "Finds gold root cause: path_traversal",
+        "passed": true,
+        "evidence": "Matched at least two root-cause terms"
+      },
+      {
+        "text": "Finds gold root cause: password_hash",
+        "passed": true,
+        "evidence": "Matched at least two root-cause terms"
+      },
+      {
+        "text": "Avoids unsupported extra actionable findings",
+        "passed": true,
+        "evidence": "Detected 2 severity-labelled candidates for 3 gold findings"
+      },
+      {
+        "text": "Assigns supported severity to matched findings",
+        "passed": true,
+        "evidence": "severity_hits=2, matched=2"
+      },
+      {
+        "text": "Provides exact file and line evidence",
+        "passed": true,
+        "evidence": "evidence_hits=2, matched=2"
+      },
+      {
+        "text": "The report is readable and bounded",
+        "passed": true,
+        "evidence": "Output length: 2000 characters"
+      }
+    ],
+    "summary": {
+      "passed": 6,
+      "failed": 1,
+      "total": 7,
+      "pass_rate": 0.7667
+    },
+    "execution_metrics": {
+      "tool_calls": {
+        "command_execution": 5,
+        "subagent_signals": 0
+      },
+      "total_tool_calls": 5,
+      "errors_encountered": 0,
+      "output_chars": 2000,
+      "transcript_chars": 8982
+    },
+    "timing": {
+      "executor_duration_seconds": 37.406
+    },
+    "run_id": "audit-r1-b0",
+    "task_id": "audit",
+    "configuration": "without_skill",
+    "run_number": 1,
+    "tokens": 93989,
+    "time_seconds": 37.406
+  },
+  {
+    "status": "valid",
+    "score": 68.33,
+    "expectations": [
+      {
+        "text": "Finds gold root cause: sql_injection",
+        "passed": false,
+        "evidence": "Insufficient root-cause evidence"
+      },
+      {
+        "text": "Finds gold root cause: path_traversal",
+        "passed": true,
+        "evidence": "Matched at least two root-cause terms"
+      },
+      {
+        "text": "Finds gold root cause: password_hash",
+        "passed": true,
+        "evidence": "Matched at least two root-cause terms"
+      },
+      {
+        "text": "Avoids unsupported extra actionable findings",
+        "passed": true,
+        "evidence": "Detected 3 severity-labelled candidates for 3 gold findings"
+      },
+      {
+        "text": "Assigns supported severity to matched findings",
+        "passed": true,
+        "evidence": "severity_hits=2, matched=2"
+      },
+      {
+        "text": "Provides exact file and line evidence",
+        "passed": true,
+        "evidence": "evidence_hits=2, matched=2"
+      },
+      {
+        "text": "The report is readable and bounded",
+        "passed": true,
+        "evidence": "Output length: 1647 characters"
+      }
+    ],
+    "summary": {
+      "passed": 6,
+      "failed": 1,
+      "total": 7,
+      "pass_rate": 0.6833
+    },
+    "execution_metrics": {
+      "tool_calls": {
+        "command_execution": 4,
+        "subagent_signals": 0
+      },
+      "total_tool_calls": 4,
+      "errors_encountered": 0,
+      "output_chars": 1647,
+      "transcript_chars": 7319
+    },
+    "timing": {
+      "executor_duration_seconds": 33.172
+    },
+    "run_id": "audit-r1-s1",
+    "task_id": "audit",
+    "configuration": "with_skill",
+    "run_number": 1,
+    "tokens": 97928,
+    "time_seconds": 33.172
+  },
+  {
+    "status": "valid",
+    "score": 34.58,
+    "expectations": [
+      {
+        "text": "Finds gold root cause: sql_injection",
+        "passed": false,
+        "evidence": "Insufficient root-cause evidence"
+      },
+      {
+        "text": "Finds gold root cause: path_traversal",
+        "passed": false,
+        "evidence": "Insufficient root-cause evidence"
+      },
+      {
+        "text": "Finds gold root cause: password_hash",
+        "passed": true,
+        "evidence": "Matched at least two root-cause terms"
+      },
+      {
+        "text": "Avoids unsupported extra actionable findings",
+        "passed": true,
+        "evidence": "Detected 4 severity-labelled candidates for 3 gold findings"
+      },
+      {
+        "text": "Assigns supported severity to matched findings",
+        "passed": true,
+        "evidence": "severity_hits=1, matched=1"
+      },
+      {
+        "text": "Provides exact file and line evidence",
+        "passed": true,
+        "evidence": "evidence_hits=1, matched=1"
+      },
+      {
+        "text": "The report is readable and bounded",
+        "passed": true,
+        "evidence": "Output length: 2941 characters"
+      }
+    ],
+    "summary": {
+      "passed": 5,
+      "failed": 2,
+      "total": 7,
+      "pass_rate": 0.3458
+    },
+    "execution_metrics": {
+      "tool_calls": {
+        "command_execution": 3,
+        "subagent_signals": 0
+      },
+      "total_tool_calls": 3,
+      "errors_encountered": 0,
+      "output_chars": 2941,
+      "transcript_chars": 7128
+    },
+    "timing": {
+      "executor_duration_seconds": 38.062
+    },
+    "run_id": "audit-r2-b0",
+    "task_id": "audit",
+    "configuration": "without_skill",
+    "run_number": 2,
+    "tokens": 93415,
+    "time_seconds": 38.062
+  },
+  {
+    "status": "valid",
+    "score": 36.67,
+    "expectations": [
+      {
+        "text": "Finds gold root cause: sql_injection",
+        "passed": false,
+        "evidence": "Insufficient root-cause evidence"
+      },
+      {
+        "text": "Finds gold root cause: path_traversal",
+        "passed": false,
+        "evidence": "Insufficient root-cause evidence"
+      },
+      {
+        "text": "Finds gold root cause: password_hash",
+        "passed": true,
+        "evidence": "Matched at least two root-cause terms"
+      },
+      {
+        "text": "Avoids unsupported extra actionable findings",
+        "passed": true,
+        "evidence": "Detected 3 severity-labelled candidates for 3 gold findings"
+      },
+      {
+        "text": "Assigns supported severity to matched findings",
+        "passed": true,
+        "evidence": "severity_hits=1, matched=1"
+      },
+      {
+        "text": "Provides exact file and line evidence",
+        "passed": true,
+        "evidence": "evidence_hits=1, matched=1"
+      },
+      {
+        "text": "The report is readable and bounded",
+        "passed": true,
+        "evidence": "Output length: 2025 characters"
+      }
+    ],
+    "summary": {
+      "passed": 5,
+      "failed": 2,
+      "total": 7,
+      "pass_rate": 0.3667
+    },
+    "execution_metrics": {
+      "tool_calls": {
+        "command_execution": 5,
+        "subagent_signals": 0
+      },
+      "total_tool_calls": 5,
+      "errors_encountered": 0,
+      "output_chars": 2025,
+      "transcript_chars": 8126
+    },
+    "timing": {
+      "executor_duration_seconds": 40.969
+    },
+    "run_id": "audit-r2-s1",
+    "task_id": "audit",
+    "configuration": "with_skill",
+    "run_number": 2,
+    "tokens": 151240,
+    "time_seconds": 40.969
+  },
+  {
+    "status": "valid",
+    "score": 85,
+    "expectations": [
+      {
+        "text": "Public and hidden acceptance tests pass",
+        "passed": true,
+        "evidence": "Hidden test exit code is 0"
+      },
+      {
+        "text": "The root cause rejects every non-positive quantity with ValueError",
+        "passed": true,
+        "evidence": "Patch contains quantity <= 0 and raises ValueError"
+      },
+      {
+        "text": "The patch is narrowly scoped to checkout code and its tests",
+        "passed": false,
+        "evidence": "Changed files: ['src/__pycache__/checkout.cpython-311.pyc', 'src/checkout.py', 'tests/__pycache__/test_checkout.cpython-311.pyc', 'tests/test_checkout.py']"
+      },
+      {
+        "text": "Verification evidence confirms public and hidden behavior",
+        "passed": true,
+        "evidence": "public=True, hidden=True"
+      },
+      {
+        "text": "The final handoff is concise and reports verification",
+        "passed": true,
+        "evidence": "Final response length: 437 characters"
+      }
+    ],
+    "summary": {
+      "passed": 4,
+      "failed": 1,
+      "total": 5,
+      "pass_rate": 0.85
+    },
+    "execution_metrics": {
+      "tool_calls": {
+        "command_execution": 3,
+        "subagent_signals": 0
+      },
+      "total_tool_calls": 3,
+      "errors_encountered": 0,
+      "output_chars": 437,
+      "transcript_chars": 10648
+    },
+    "timing": {
+      "executor_duration_seconds": 29.063
+    },
+    "run_id": "bugfix-r1-b0",
+    "task_id": "bugfix",
+    "configuration": "without_skill",
+    "run_number": 1,
+    "tokens": 120204,
+    "time_seconds": 29.063
+  },
+  {
+    "status": "valid",
+    "score": 5,
+    "expectations": [
+      {
+        "text": "Public and hidden acceptance tests pass",
+        "passed": false,
+        "evidence": "Hidden test exit code is 0"
+      },
+      {
+        "text": "The root cause rejects every non-positive quantity with ValueError",
+        "passed": false,
+        "evidence": "Required guard not found"
+      },
+      {
+        "text": "The patch is narrowly scoped to checkout code and its tests",
+        "passed": false,
+        "evidence": "Changed files: []"
+      },
+      {
+        "text": "Verification evidence confirms public and hidden behavior",
+        "passed": false,
+        "evidence": "public=True, hidden=False"
+      },
+      {
+        "text": "The final handoff is concise and reports verification",
+        "passed": true,
+        "evidence": "Final response length: 103 characters"
+      }
+    ],
+    "summary": {
+      "passed": 1,
+      "failed": 4,
+      "total": 5,
+      "pass_rate": 0.05
+    },
+    "execution_metrics": {
+      "tool_calls": {
+        "command_execution": 3,
+        "subagent_signals": 0
+      },
+      "total_tool_calls": 3,
+      "errors_encountered": 0,
+      "output_chars": 103,
+      "transcript_chars": 46951
+    },
+    "timing": {
+      "executor_duration_seconds": 34.297
+    },
+    "run_id": "bugfix-r1-s1",
+    "task_id": "bugfix",
+    "configuration": "with_skill",
+    "run_number": 1,
+    "tokens": 135304,
+    "time_seconds": 34.297
+  },
+  {
+    "status": "valid",
+    "score": 85,
+    "expectations": [
+      {
+        "text": "Public and hidden acceptance tests pass",
+        "passed": true,
+        "evidence": "Hidden test exit code is 0"
+      },
+      {
+        "text": "The root cause rejects every non-positive quantity with ValueError",
+        "passed": true,
+        "evidence": "Patch contains quantity <= 0 and raises ValueError"
+      },
+      {
+        "text": "The patch is narrowly scoped to checkout code and its tests",
+        "passed": false,
+        "evidence": "Changed files: ['src/__pycache__/checkout.cpython-311.pyc', 'src/checkout.py', 'tests/__pycache__/test_checkout.cpython-311.pyc', 'tests/test_checkout.py']"
+      },
+      {
+        "text": "Verification evidence confirms public and hidden behavior",
+        "passed": true,
+        "evidence": "public=True, hidden=True"
+      },
+      {
+        "text": "The final handoff is concise and reports verification",
+        "passed": true,
+        "evidence": "Final response length: 673 characters"
+      }
+    ],
+    "summary": {
+      "passed": 4,
+      "failed": 1,
+      "total": 5,
+      "pass_rate": 0.85
+    },
+    "execution_metrics": {
+      "tool_calls": {
+        "command_execution": 3,
+        "subagent_signals": 0
+      },
+      "total_tool_calls": 3,
+      "errors_encountered": 0,
+      "output_chars": 673,
+      "transcript_chars": 11132
+    },
+    "timing": {
+      "executor_duration_seconds": 28.813
+    },
+    "run_id": "bugfix-r2-b0",
+    "task_id": "bugfix",
+    "configuration": "without_skill",
+    "run_number": 2,
+    "tokens": 122288,
+    "time_seconds": 28.813
+  },
+  {
+    "status": "valid",
+    "score": 5,
+    "expectations": [
+      {
+        "text": "Public and hidden acceptance tests pass",
+        "passed": false,
+        "evidence": "Hidden test exit code is 0"
+      },
+      {
+        "text": "The root cause rejects every non-positive quantity with ValueError",
+        "passed": false,
+        "evidence": "Required guard not found"
+      },
+      {
+        "text": "The patch is narrowly scoped to checkout code and its tests",
+        "passed": false,
+        "evidence": "Changed files: []"
+      },
+      {
+        "text": "Verification evidence confirms public and hidden behavior",
+        "passed": false,
+        "evidence": "public=True, hidden=False"
+      },
+      {
+        "text": "The final handoff is concise and reports verification",
+        "passed": true,
+        "evidence": "Final response length: 473 characters"
+      }
+    ],
+    "summary": {
+      "passed": 1,
+      "failed": 4,
+      "total": 5,
+      "pass_rate": 0.05
+    },
+    "execution_metrics": {
+      "tool_calls": {
+        "command_execution": 10,
+        "subagent_signals": 0
+      },
+      "total_tool_calls": 10,
+      "errors_encountered": 0,
+      "output_chars": 473,
+      "transcript_chars": 48697
+    },
+    "timing": {
+      "executor_duration_seconds": 36.187
+    },
+    "run_id": "bugfix-r2-s1",
+    "task_id": "bugfix",
+    "configuration": "with_skill",
+    "run_number": 2,
+    "tokens": 124080,
+    "time_seconds": 36.187
+  },
+  {
+    "status": "valid",
+    "score": 100,
+    "expectations": [
+      {
+        "text": "Finds gold root cause: cumulative_refund",
+        "passed": true,
+        "evidence": "Matched at least two root-cause terms"
+      },
+      {
+        "text": "Finds gold root cause: predictable_token",
+        "passed": true,
+        "evidence": "Matched at least two root-cause terms"
+      },
+      {
+        "text": "Finds gold root cause: missing_expiry",
+        "passed": true,
+        "evidence": "Matched at least two root-cause terms"
+      },
+      {
+        "text": "Finds gold root cause: arbitrary_export_path",
+        "passed": true,
+        "evidence": "Matched at least two root-cause terms"
+      },
+      {
+        "text": "Finds gold root cause: csv_injection",
+        "passed": true,
+        "evidence": "Matched at least two root-cause terms"
+      },
+      {
+        "text": "Avoids unsupported extra actionable findings",
+        "passed": true,
+        "evidence": "Detected 5 severity-labelled candidates for 5 gold findings"
+      },
+      {
+        "text": "Covers all three independent audit areas",
+        "passed": true,
+        "evidence": "files_covered=True, subagent_signal=False"
+      },
+      {
+        "text": "Integrates findings into a deduplicated prioritized report",
+        "passed": true,
+        "evidence": "matched=5, candidates=5"
+      },
+      {
+        "text": "The report is readable and bounded",
+        "passed": true,
+        "evidence": "Output length: 4709 characters"
+      }
+    ],
+    "summary": {
+      "passed": 9,
+      "failed": 0,
+      "total": 9,
+      "pass_rate": 1.0
+    },
+    "execution_metrics": {
+      "tool_calls": {
+        "command_execution": 7,
+        "subagent_signals": 0
+      },
+      "total_tool_calls": 7,
+      "errors_encountered": 0,
+      "output_chars": 4709,
+      "transcript_chars": 19824
+    },
+    "timing": {
+      "executor_duration_seconds": 80.75
+    },
+    "run_id": "parallel_audit-r1-b0",
+    "task_id": "parallel_audit",
+    "configuration": "without_skill",
+    "run_number": 1,
+    "tokens": 214352,
+    "time_seconds": 80.75
+  },
+  {
+    "status": "valid",
+    "score": 100,
+    "expectations": [
+      {
+        "text": "Finds gold root cause: cumulative_refund",
+        "passed": true,
+        "evidence": "Matched at least two root-cause terms"
+      },
+      {
+        "text": "Finds gold root cause: predictable_token",
+        "passed": true,
+        "evidence": "Matched at least two root-cause terms"
+      },
+      {
+        "text": "Finds gold root cause: missing_expiry",
+        "passed": true,
+        "evidence": "Matched at least two root-cause terms"
+      },
+      {
+        "text": "Finds gold root cause: arbitrary_export_path",
+        "passed": true,
+        "evidence": "Matched at least two root-cause terms"
+      },
+      {
+        "text": "Finds gold root cause: csv_injection",
+        "passed": true,
+        "evidence": "Matched at least two root-cause terms"
+      },
+      {
+        "text": "Avoids unsupported extra actionable findings",
+        "passed": true,
+        "evidence": "Detected 5 severity-labelled candidates for 5 gold findings"
+      },
+      {
+        "text": "Covers all three independent audit areas",
+        "passed": true,
+        "evidence": "files_covered=True, subagent_signal=False"
+      },
+      {
+        "text": "Integrates findings into a deduplicated prioritized report",
+        "passed": true,
+        "evidence": "matched=5, candidates=5"
+      },
+      {
+        "text": "The report is readable and bounded",
+        "passed": true,
+        "evidence": "Output length: 6336 characters"
+      }
+    ],
+    "summary": {
+      "passed": 9,
+      "failed": 0,
+      "total": 9,
+      "pass_rate": 1.0
+    },
+    "execution_metrics": {
+      "tool_calls": {
+        "command_execution": 15,
+        "subagent_signals": 0
+      },
+      "total_tool_calls": 15,
+      "errors_encountered": 0,
+      "output_chars": 6336,
+      "transcript_chars": 27683
+    },
+    "timing": {
+      "executor_duration_seconds": 175.25
+    },
+    "run_id": "parallel_audit-r1-s1",
+    "task_id": "parallel_audit",
+    "configuration": "with_skill",
+    "run_number": 1,
+    "tokens": 517643,
+    "time_seconds": 175.25
+  },
+  {
+    "status": "valid",
+    "score": 100,
+    "expectations": [
+      {
+        "text": "Finds gold root cause: cumulative_refund",
+        "passed": true,
+        "evidence": "Matched at least two root-cause terms"
+      },
+      {
+        "text": "Finds gold root cause: predictable_token",
+        "passed": true,
+        "evidence": "Matched at least two root-cause terms"
+      },
+      {
+        "text": "Finds gold root cause: missing_expiry",
+        "passed": true,
+        "evidence": "Matched at least two root-cause terms"
+      },
+      {
+        "text": "Finds gold root cause: arbitrary_export_path",
+        "passed": true,
+        "evidence": "Matched at least two root-cause terms"
+      },
+      {
+        "text": "Finds gold root cause: csv_injection",
+        "passed": true,
+        "evidence": "Matched at least two root-cause terms"
+      },
+      {
+        "text": "Avoids unsupported extra actionable findings",
+        "passed": true,
+        "evidence": "Detected 5 severity-labelled candidates for 5 gold findings"
+      },
+      {
+        "text": "Covers all three independent audit areas",
+        "passed": true,
+        "evidence": "files_covered=True, subagent_signal=False"
+      },
+      {
+        "text": "Integrates findings into a deduplicated prioritized report",
+        "passed": true,
+        "evidence": "matched=5, candidates=5"
+      },
+      {
+        "text": "The report is readable and bounded",
+        "passed": true,
+        "evidence": "Output length: 4755 characters"
+      }
+    ],
+    "summary": {
+      "passed": 9,
+      "failed": 0,
+      "total": 9,
+      "pass_rate": 1.0
+    },
+    "execution_metrics": {
+      "tool_calls": {
+        "command_execution": 8,
+        "subagent_signals": 0
+      },
+      "total_tool_calls": 8,
+      "errors_encountered": 0,
+      "output_chars": 4755,
+      "transcript_chars": 18049
+    },
+    "timing": {
+      "executor_duration_seconds": 71.86
+    },
+    "run_id": "parallel_audit-r2-b0",
+    "task_id": "parallel_audit",
+    "configuration": "without_skill",
+    "run_number": 2,
+    "tokens": 125822,
+    "time_seconds": 71.86
+  },
+  {
+    "status": "valid",
+    "score": 100,
+    "expectations": [
+      {
+        "text": "Finds gold root cause: cumulative_refund",
+        "passed": true,
+        "evidence": "Matched at least two root-cause terms"
+      },
+      {
+        "text": "Finds gold root cause: predictable_token",
+        "passed": true,
+        "evidence": "Matched at least two root-cause terms"
+      },
+      {
+        "text": "Finds gold root cause: missing_expiry",
+        "passed": true,
+        "evidence": "Matched at least two root-cause terms"
+      },
+      {
+        "text": "Finds gold root cause: arbitrary_export_path",
+        "passed": true,
+        "evidence": "Matched at least two root-cause terms"
+      },
+      {
+        "text": "Finds gold root cause: csv_injection",
+        "passed": true,
+        "evidence": "Matched at least two root-cause terms"
+      },
+      {
+        "text": "Avoids unsupported extra actionable findings",
+        "passed": true,
+        "evidence": "Detected 5 severity-labelled candidates for 5 gold findings"
+      },
+      {
+        "text": "Covers all three independent audit areas",
+        "passed": true,
+        "evidence": "files_covered=True, subagent_signal=False"
+      },
+      {
+        "text": "Integrates findings into a deduplicated prioritized report",
+        "passed": true,
+        "evidence": "matched=5, candidates=5"
+      },
+      {
+        "text": "The report is readable and bounded",
+        "passed": true,
+        "evidence": "Output length: 4253 characters"
+      }
+    ],
+    "summary": {
+      "passed": 9,
+      "failed": 0,
+      "total": 9,
+      "pass_rate": 1.0
+    },
+    "execution_metrics": {
+      "tool_calls": {
+        "command_execution": 17,
+        "subagent_signals": 0
+      },
+      "total_tool_calls": 17,
+      "errors_encountered": 0,
+      "output_chars": 4253,
+      "transcript_chars": 37351
+    },
+    "timing": {
+      "executor_duration_seconds": 136.609
+    },
+    "run_id": "parallel_audit-r2-s1",
+    "task_id": "parallel_audit",
+    "configuration": "with_skill",
+    "run_number": 2,
+    "tokens": 568016,
+    "time_seconds": 136.609
+  },
+  {
+    "status": "valid",
+    "score": 80.62,
+    "expectations": [
+      {
+        "text": "Plan covers exact decimal arithmetic",
+        "passed": true,
+        "evidence": "Required terms: ('decimal', 'float')"
+      },
+      {
+        "text": "Plan covers currency precision and rounding",
+        "passed": true,
+        "evidence": "Required terms: ('round', 'minor unit')"
+      },
+      {
+        "text": "Plan covers provider failure behavior",
+        "passed": true,
+        "evidence": "Required terms: ('provider', 'timeout', 'unavailable')"
+      },
+      {
+        "text": "Plan covers idempotent execution",
+        "passed": true,
+        "evidence": "Required terms: ('idempoten',)"
+      },
+      {
+        "text": "Plan covers cumulative refund limit",
+        "passed": false,
+        "evidence": "Required terms: ('cumulative', 'captured')"
+      },
+      {
+        "text": "Plan covers exchange-rate audit trail",
+        "passed": true,
+        "evidence": "Required terms: ('audit', 'rate', 'quote')"
+      },
+      {
+        "text": "Plan covers tests and verification",
+        "passed": true,
+        "evidence": "Required terms: ('test', 'verify')"
+      },
+      {
+        "text": "Plan covers rollout or migration",
+        "passed": true,
+        "evidence": "Required terms: ('rollout', 'migration')"
+      },
+      {
+        "text": "Plan makes explicit technical decisions",
+        "passed": true,
+        "evidence": "currency/decimal/provider/idempotency decisions"
+      },
+      {
+        "text": "Plan names exact files, tests, and commands",
+        "passed": true,
+        "evidence": "src/, tests/, and python command references"
+      },
+      {
+        "text": "Plan addresses concurrency, rollback, and failure risks",
+        "passed": false,
+        "evidence": "risk terms present"
+      },
+      {
+        "text": "Plan is structured and bounded",
+        "passed": true,
+        "evidence": "Output length: 12826 characters"
+      }
+    ],
+    "summary": {
+      "passed": 10,
+      "failed": 2,
+      "total": 12,
+      "pass_rate": 0.8062
+    },
+    "execution_metrics": {
+      "tool_calls": {
+        "command_execution": 25,
+        "subagent_signals": 0
+      },
+      "total_tool_calls": 25,
+      "errors_encountered": 0,
+      "output_chars": 12826,
+      "transcript_chars": 36394
+    },
+    "timing": {
+      "executor_duration_seconds": 177.515
+    },
+    "run_id": "planning-r1-b0",
+    "task_id": "planning",
+    "configuration": "without_skill",
+    "run_number": 1,
+    "tokens": 487598,
+    "time_seconds": 177.515
+  },
+  {
+    "status": "valid",
+    "score": 76.25,
+    "expectations": [
+      {
+        "text": "Plan covers exact decimal arithmetic",
+        "passed": true,
+        "evidence": "Required terms: ('decimal', 'float')"
+      },
+      {
+        "text": "Plan covers currency precision and rounding",
+        "passed": false,
+        "evidence": "Required terms: ('round', 'minor unit')"
+      },
+      {
+        "text": "Plan covers provider failure behavior",
+        "passed": true,
+        "evidence": "Required terms: ('provider', 'timeout', 'unavailable')"
+      },
+      {
+        "text": "Plan covers idempotent execution",
+        "passed": true,
+        "evidence": "Required terms: ('idempoten',)"
+      },
+      {
+        "text": "Plan covers cumulative refund limit",
+        "passed": true,
+        "evidence": "Required terms: ('cumulative', 'captured')"
+      },
+      {
+        "text": "Plan covers exchange-rate audit trail",
+        "passed": true,
+        "evidence": "Required terms: ('audit', 'rate', 'quote')"
+      },
+      {
+        "text": "Plan covers tests and verification",
+        "passed": true,
+        "evidence": "Required terms: ('test', 'verify')"
+      },
+      {
+        "text": "Plan covers rollout or migration",
+        "passed": false,
+        "evidence": "Required terms: ('rollout', 'migration')"
+      },
+      {
+        "text": "Plan makes explicit technical decisions",
+        "passed": true,
+        "evidence": "currency/decimal/provider/idempotency decisions"
+      },
+      {
+        "text": "Plan names exact files, tests, and commands",
+        "passed": true,
+        "evidence": "src/, tests/, and python command references"
+      },
+      {
+        "text": "Plan addresses concurrency, rollback, and failure risks",
+        "passed": false,
+        "evidence": "risk terms present"
+      },
+      {
+        "text": "Plan is structured and bounded",
+        "passed": true,
+        "evidence": "Output length: 13999 characters"
+      }
+    ],
+    "summary": {
+      "passed": 9,
+      "failed": 3,
+      "total": 12,
+      "pass_rate": 0.7625
+    },
+    "execution_metrics": {
+      "tool_calls": {
+        "command_execution": 15,
+        "subagent_signals": 0
+      },
+      "total_tool_calls": 15,
+      "errors_encountered": 0,
+      "output_chars": 13999,
+      "transcript_chars": 38357
+    },
+    "timing": {
+      "executor_duration_seconds": 140.547
+    },
+    "run_id": "planning-r1-s1",
+    "task_id": "planning",
+    "configuration": "with_skill",
+    "run_number": 1,
+    "tokens": 243421,
+    "time_seconds": 140.547
+  },
+  {
+    "status": "valid",
+    "score": 91.25,
+    "expectations": [
+      {
+        "text": "Plan covers exact decimal arithmetic",
+        "passed": true,
+        "evidence": "Required terms: ('decimal', 'float')"
+      },
+      {
+        "text": "Plan covers currency precision and rounding",
+        "passed": true,
+        "evidence": "Required terms: ('round', 'minor unit')"
+      },
+      {
+        "text": "Plan covers provider failure behavior",
+        "passed": false,
+        "evidence": "Required terms: ('provider', 'timeout', 'unavailable')"
+      },
+      {
+        "text": "Plan covers idempotent execution",
+        "passed": true,
+        "evidence": "Required terms: ('idempoten',)"
+      },
+      {
+        "text": "Plan covers cumulative refund limit",
+        "passed": true,
+        "evidence": "Required terms: ('cumulative', 'captured')"
+      },
+      {
+        "text": "Plan covers exchange-rate audit trail",
+        "passed": true,
+        "evidence": "Required terms: ('audit', 'rate', 'quote')"
+      },
+      {
+        "text": "Plan covers tests and verification",
+        "passed": false,
+        "evidence": "Required terms: ('test', 'verify')"
+      },
+      {
+        "text": "Plan covers rollout or migration",
+        "passed": true,
+        "evidence": "Required terms: ('rollout', 'migration')"
+      },
+      {
+        "text": "Plan makes explicit technical decisions",
+        "passed": true,
+        "evidence": "currency/decimal/provider/idempotency decisions"
+      },
+      {
+        "text": "Plan names exact files, tests, and commands",
+        "passed": true,
+        "evidence": "src/, tests/, and python command references"
+      },
+      {
+        "text": "Plan addresses concurrency, rollback, and failure risks",
+        "passed": true,
+        "evidence": "risk terms present"
+      },
+      {
+        "text": "Plan is structured and bounded",
+        "passed": true,
+        "evidence": "Output length: 10143 characters"
+      }
+    ],
+    "summary": {
+      "passed": 10,
+      "failed": 2,
+      "total": 12,
+      "pass_rate": 0.9125
+    },
+    "execution_metrics": {
+      "tool_calls": {
+        "command_execution": 23,
+        "subagent_signals": 0
+      },
+      "total_tool_calls": 23,
+      "errors_encountered": 0,
+      "output_chars": 10143,
+      "transcript_chars": 32588
+    },
+    "timing": {
+      "executor_duration_seconds": 125.578
+    },
+    "run_id": "planning-r2-b0",
+    "task_id": "planning",
+    "configuration": "without_skill",
+    "run_number": 2,
+    "tokens": 185423,
+    "time_seconds": 125.578
+  },
+  {
+    "status": "valid",
+    "score": 100.0,
+    "expectations": [
+      {
+        "text": "Plan covers exact decimal arithmetic",
+        "passed": true,
+        "evidence": "Required terms: ('decimal', 'float')"
+      },
+      {
+        "text": "Plan covers currency precision and rounding",
+        "passed": true,
+        "evidence": "Required terms: ('round', 'minor unit')"
+      },
+      {
+        "text": "Plan covers provider failure behavior",
+        "passed": true,
+        "evidence": "Required terms: ('provider', 'timeout', 'unavailable')"
+      },
+      {
+        "text": "Plan covers idempotent execution",
+        "passed": true,
+        "evidence": "Required terms: ('idempoten',)"
+      },
+      {
+        "text": "Plan covers cumulative refund limit",
+        "passed": true,
+        "evidence": "Required terms: ('cumulative', 'captured')"
+      },
+      {
+        "text": "Plan covers exchange-rate audit trail",
+        "passed": true,
+        "evidence": "Required terms: ('audit', 'rate', 'quote')"
+      },
+      {
+        "text": "Plan covers tests and verification",
+        "passed": true,
+        "evidence": "Required terms: ('test', 'verify')"
+      },
+      {
+        "text": "Plan covers rollout or migration",
+        "passed": true,
+        "evidence": "Required terms: ('rollout', 'migration')"
+      },
+      {
+        "text": "Plan makes explicit technical decisions",
+        "passed": true,
+        "evidence": "currency/decimal/provider/idempotency decisions"
+      },
+      {
+        "text": "Plan names exact files, tests, and commands",
+        "passed": true,
+        "evidence": "src/, tests/, and python command references"
+      },
+      {
+        "text": "Plan addresses concurrency, rollback, and failure risks",
+        "passed": true,
+        "evidence": "risk terms present"
+      },
+      {
+        "text": "Plan is structured and bounded",
+        "passed": true,
+        "evidence": "Output length: 16134 characters"
+      }
+    ],
+    "summary": {
+      "passed": 12,
+      "failed": 0,
+      "total": 12,
+      "pass_rate": 1.0
+    },
+    "execution_metrics": {
+      "tool_calls": {
+        "command_execution": 8,
+        "subagent_signals": 0
+      },
+      "total_tool_calls": 8,
+      "errors_encountered": 0,
+      "output_chars": 16134,
+      "transcript_chars": 49480
+    },
+    "timing": {
+      "executor_duration_seconds": 189.218
+    },
+    "run_id": "planning-r2-s1",
+    "task_id": "planning",
+    "configuration": "with_skill",
+    "run_number": 2,
+    "tokens": 288930,
+    "time_seconds": 189.218
+  }
+]
