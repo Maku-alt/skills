@@ -46,6 +46,10 @@ def sha256_text(value: str) -> str:
     return hashlib.sha256(value.encode("utf-8")).hexdigest()
 
 
+def resolve_codex_home(homes_root: Path, configuration: str) -> Path:
+    return (homes_root / configuration).resolve()
+
+
 def run_command(
     command: list[str],
     *,
@@ -172,7 +176,7 @@ def execute_run(
         item["prompt"],
     ]
     environment = os.environ.copy()
-    environment["CODEX_HOME"] = str(homes_root / item["config"])
+    environment["CODEX_HOME"] = str(resolve_codex_home(homes_root, item["config"]))
     started = time.monotonic()
     status = "completed"
     try:

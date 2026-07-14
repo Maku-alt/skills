@@ -79,6 +79,16 @@ class HarnessTests(unittest.TestCase):
         self.assertNotEqual([run["config"] for run in first], sorted(run["config"] for run in first))
         self.assertEqual({run["run_id"] for run in first}, {run["run_id"] for run in matrix})
 
+    @unittest.skipUnless(RUNNER_PATH.is_file(), "runner not implemented")
+    def test_codex_home_is_resolved_before_child_changes_directory(self) -> None:
+        runner = load_runner()
+
+        self.assertTrue(hasattr(runner, "resolve_codex_home"))
+        resolved = runner.resolve_codex_home(Path("relative-homes"), "B0")
+
+        self.assertTrue(resolved.is_absolute())
+        self.assertEqual(resolved.name, "B0")
+
     @unittest.skipUnless(BUILDER_PATH.is_file(), "builder not implemented")
     def test_config_builder_isolates_selected_skills(self) -> None:
         with tempfile.TemporaryDirectory() as temporary:
