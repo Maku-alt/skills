@@ -7,6 +7,7 @@ import json
 import os
 import random
 import shutil
+import stat
 import subprocess
 import sys
 import time
@@ -68,9 +69,22 @@ def run_command(
     )
 
 
-def initialize_run_directory(run_dir: Path) -> None:
+def safe_remove_tree(path: Path, allowed_root: Path) -> None:
+    resolved_path = path.resolve()
+    resolved_root = allowed_root.resolve()
+    if resolved_path == resolved_root or resolved_root not in resolved_path.parents:
+        raise ValueError(f"refusing to remove path outside allowed root: {resolved_path}")
+
+    def remove_read_only(function, target, _error) -> None:
+        os.chmod(target, stat.S_IWRITE)
+        function(target)
+
+    shutil.rmtree(resolved_path, onerror=remove_read_only)
+
+
+def initialize_run_directory(run_dir: Path, allowed_root: Path) -> None:
     if run_dir.exists():
-        shutil.rmtree(run_dir)
+        safe_remove_tree(run_dir, allowed_root)
     shutil.copytree(ROOT / "fixture", run_dir)
     commands = [
         ["git", "init", "-q"],
@@ -150,7 +164,7 @@ def execute_run(
     artifact_dir = results_root / item["run_id"]
     workspace = artifact_dir / "workspace"
     artifact_dir.mkdir(parents=True, exist_ok=True)
-    initialize_run_directory(workspace)
+    initialize_run_directory(workspace, results_root)
     final_path = artifact_dir / "final.md"
     events_path = artifact_dir / "events.jsonl"
     codex = shutil.which("codex")

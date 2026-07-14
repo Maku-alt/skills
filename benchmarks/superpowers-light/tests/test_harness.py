@@ -1,5 +1,7 @@
 import importlib.util
 import json
+import os
+import stat
 import subprocess
 import tempfile
 import unittest
@@ -88,6 +90,22 @@ class HarnessTests(unittest.TestCase):
 
         self.assertTrue(resolved.is_absolute())
         self.assertEqual(resolved.name, "B0")
+
+    @unittest.skipUnless(RUNNER_PATH.is_file(), "runner not implemented")
+    def test_safe_remove_tree_handles_read_only_files_inside_allowed_root(self) -> None:
+        runner = load_runner()
+        self.assertTrue(hasattr(runner, "safe_remove_tree"))
+        with tempfile.TemporaryDirectory() as temporary:
+            allowed_root = Path(temporary)
+            target = allowed_root / "old-run"
+            target.mkdir()
+            locked = target / "object"
+            locked.write_text("data", encoding="utf-8")
+            os.chmod(locked, stat.S_IREAD)
+
+            runner.safe_remove_tree(target, allowed_root)
+
+            self.assertFalse(target.exists())
 
     @unittest.skipUnless(BUILDER_PATH.is_file(), "builder not implemented")
     def test_config_builder_isolates_selected_skills(self) -> None:
