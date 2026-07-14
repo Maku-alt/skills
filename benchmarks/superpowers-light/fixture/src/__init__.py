@@ -1,0 +1,1 @@
+"""Acme Shop benchmark fixture."""

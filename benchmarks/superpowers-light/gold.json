@@ -1,0 +1,61 @@
+{
+  "planning": {
+    "rubric": [
+      {"name": "requirements", "points": 35},
+      {"name": "decisions", "points": 20},
+      {"name": "execution", "points": 25},
+      {"name": "risks", "points": 15},
+      {"name": "clarity", "points": 5}
+    ],
+    "requirements": [
+      "exact decimal arithmetic",
+      "explicit currency precision and rounding",
+      "rate provider timeout and retry behavior",
+      "idempotent refund execution",
+      "cumulative refund limit",
+      "immutable exchange-rate audit trail",
+      "tests and verification commands",
+      "rollout or migration strategy"
+    ]
+  },
+  "bugfix": {
+    "rubric": [
+      {"name": "tests", "points": 45},
+      {"name": "root_cause", "points": 20},
+      {"name": "scope", "points": 15},
+      {"name": "verification", "points": 15},
+      {"name": "clarity", "points": 5}
+    ],
+    "expected": "line_total raises ValueError for quantity <= 0 and preserves Decimal multiplication for positive quantities"
+  },
+  "audit": {
+    "rubric": [
+      {"name": "recall", "points": 40},
+      {"name": "precision", "points": 25},
+      {"name": "severity", "points": 10},
+      {"name": "evidence", "points": 20},
+      {"name": "clarity", "points": 5}
+    ],
+    "findings": [
+      {"id": "sql_injection", "severity": "high", "terms": ["sql injection", "parameterized", "find_by_email"]},
+      {"id": "path_traversal", "severity": "high", "terms": ["path traversal", "username", "save_avatar"]},
+      {"id": "password_hash", "severity": "high", "terms": ["password", "sha256", "argon2", "scrypt", "bcrypt", "salt"]}
+    ]
+  },
+  "parallel_audit": {
+    "rubric": [
+      {"name": "recall", "points": 55},
+      {"name": "precision", "points": 15},
+      {"name": "division", "points": 10},
+      {"name": "integration", "points": 15},
+      {"name": "clarity", "points": 5}
+    ],
+    "findings": [
+      {"id": "cumulative_refund", "severity": "high", "terms": ["already_refunded", "captured", "cumulative", "refund"]},
+      {"id": "predictable_token", "severity": "critical", "terms": ["predictable", "random", "secrets", "token"]},
+      {"id": "missing_expiry", "severity": "high", "terms": ["expire", "30", "created_at", "session"]},
+      {"id": "arbitrary_export_path", "severity": "high", "terms": ["destination", "path", "export", "directory"]},
+      {"id": "csv_injection", "severity": "medium", "terms": ["csv injection", "formula", "spreadsheet", "prefix"]}
+    ]
+  }
+}
