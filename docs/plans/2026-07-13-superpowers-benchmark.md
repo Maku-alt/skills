@@ -6,7 +6,7 @@
 
 **Architecture:** A self-contained Python fixture repository supplies four frozen tasks and hidden rubrics. A PowerShell setup script creates two temporary `CODEX_HOME` directories that share authentication and system skills but differ in the seven selected Superpowers; a Python runner launches ephemeral Codex CLI sessions and captures JSONL, final responses, patches, timing, and verification results. A deterministic grader handles tests and gold findings, while a rubric grader handles planning quality and produces a compact Markdown report.
 
-**Tech Stack:** PowerShell 7, Python 3 standard library, pytest, Git, Codex CLI 0.142.3.
+**Tech Stack:** PowerShell 7, Python 3 standard library (`unittest`), Git, Codex CLI 0.142.3.
 
 ## Global Constraints
 
@@ -43,7 +43,7 @@
 - Produces: a deterministic Python fixture, four prompts, hidden tests, and category rubrics.
 
 - [ ] Write the fixture test proving the intended checkout bug fails before agent modification.
-- [ ] Run `python -m pytest benchmarks/superpowers-light/tests/test_fixture.py -q` and verify failure describes the missing edge-case behavior.
+- [ ] Run `python -m unittest benchmarks.superpowers-light.tests.test_fixture -v` through discovery and verify failure describes the missing edge-case behavior.
 - [ ] Implement the fixture modules with one reproducible checkout defect, three audit findings, and three independent parallel-audit areas.
 - [ ] Define four prompts without skill names or configuration hints.
 - [ ] Define gold root causes, severities, evidence, and 100-point rubrics.
@@ -62,7 +62,7 @@
 - Produces: temporary B0/S1 homes and 16 isolated run directories under `benchmarks/superpowers-light/results/raw/`.
 
 - [ ] Write harness tests for the 4×2×2 matrix, randomized order, configuration inventories, and prompt equality.
-- [ ] Run `python -m pytest benchmarks/superpowers-light/tests/test_harness.py -q` and verify the tests fail before implementation.
+- [ ] Run `python -m unittest discover -s benchmarks/superpowers-light/tests -p "test_harness.py" -v` and verify the tests fail before implementation.
 - [ ] Implement config creation without printing or persisting authentication content in benchmark artifacts.
 - [ ] Implement run-directory cloning, ephemeral `codex exec --json`, a 30-minute timeout, two-process concurrency, and event/timing capture.
 - [ ] Record the final response, Git diff, public tests, hidden tests for bugfix runs, exit status, duration, and token data when present.
@@ -103,7 +103,7 @@
 - Produces: per-run 0–100 scores, paired category deltas, cost metrics, blind examples, and keep/conditional/simplify/remove/not-evaluated recommendations.
 
 - [ ] Write grading tests for deterministic bug scores, audit recall/precision, critical-failure caps, and paired aggregation.
-- [ ] Run `python -m pytest benchmarks/superpowers-light/tests/test_grading.py -q` and verify failure before implementation.
+- [ ] Run `python -m unittest discover -s benchmarks/superpowers-light/tests -p "test_grading.py" -v` and verify failure before implementation.
 - [ ] Implement deterministic grading and opaque B0/S1 labels.
 - [ ] Grade planning dimensions from the frozen rubric with evidence for every awarded score.
 - [ ] Aggregate mean quality, paired deltas, time, tokens, tool calls, and agent usage without merging cost into quality.
