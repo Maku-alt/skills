@@ -56,6 +56,18 @@ def resolve_run_paths(results_root: Path, run_id: str) -> tuple[Path, Path, Path
     return artifact_dir, artifact_dir / "workspace", artifact_dir / "final.md"
 
 
+def resolve_codex_executable(explicit: Path | None) -> Path:
+    if explicit is not None:
+        resolved = explicit.resolve()
+        if not resolved.is_file():
+            raise FileNotFoundError(f"Codex executable not found: {resolved}")
+        return resolved
+    discovered = shutil.which("codex")
+    if not discovered:
+        raise FileNotFoundError("codex executable not found on PATH")
+    return Path(discovered).resolve()
+
+
 def run_command(
     command: list[str],
     *,
@@ -165,16 +177,14 @@ def execute_run(
     homes_root: Path,
     results_root: Path,
     timeout_seconds: int,
+    codex_executable: Path,
 ) -> dict[str, Any]:
     artifact_dir, workspace, final_path = resolve_run_paths(results_root, item["run_id"])
     artifact_dir.mkdir(parents=True, exist_ok=True)
     initialize_run_directory(workspace, results_root)
     events_path = artifact_dir / "events.jsonl"
-    codex = shutil.which("codex")
-    if not codex:
-        raise RuntimeError("codex executable not found")
     command = [
-        codex,
+        str(codex_executable),
         "exec",
         "--ignore-user-config",
         "--ephemeral",
@@ -222,6 +232,7 @@ def execute_run(
         "duration_seconds": round(duration, 3),
         "model": MODEL,
         "reasoning_effort": REASONING_EFFORT,
+        "codex_executable": str(codex_executable),
         "prompt_sha256": sha256_text(item["prompt"]),
         "usage": extract_usage(events_path),
         "verification": verification,
@@ -239,8 +250,10 @@ def main() -> int:
     parser.add_argument("--seed", type=int, default=5602)
     parser.add_argument("--max-workers", type=int, default=2)
     parser.add_argument("--timeout-seconds", type=int, default=1800)
+    parser.add_argument("--codex-executable", type=Path)
     parser.add_argument("--pilot", action="store_true")
     args = parser.parse_args()
+    codex_executable = resolve_codex_executable(args.codex_executable)
 
     evals = json.loads((ROOT / "evals.json").read_text(encoding="utf-8"))["evals"]
     if args.pilot:
@@ -269,6 +282,7 @@ def main() -> int:
                 homes_root=args.homes_root,
                 results_root=args.results_root,
                 timeout_seconds=args.timeout_seconds,
+                codex_executable=codex_executable,
             )
             for item in matrix
         ]

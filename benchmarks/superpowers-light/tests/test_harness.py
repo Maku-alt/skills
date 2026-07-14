@@ -105,6 +105,18 @@ class HarnessTests(unittest.TestCase):
         self.assertEqual(final.parent, artifact)
 
     @unittest.skipUnless(RUNNER_PATH.is_file(), "runner not implemented")
+    def test_explicit_codex_executable_is_resolved_absolutely(self) -> None:
+        runner = load_runner()
+        self.assertTrue(hasattr(runner, "resolve_codex_executable"))
+        with tempfile.TemporaryDirectory() as temporary:
+            executable = Path(temporary) / "codex.cmd"
+            executable.write_text("@echo off", encoding="utf-8")
+
+            resolved = runner.resolve_codex_executable(executable)
+
+            self.assertEqual(resolved, executable.resolve())
+
+    @unittest.skipUnless(RUNNER_PATH.is_file(), "runner not implemented")
     def test_safe_remove_tree_handles_read_only_files_inside_allowed_root(self) -> None:
         runner = load_runner()
         self.assertTrue(hasattr(runner, "safe_remove_tree"))
