@@ -51,6 +51,11 @@ def resolve_codex_home(homes_root: Path, configuration: str) -> Path:
     return (homes_root / configuration).resolve()
 
 
+def resolve_run_paths(results_root: Path, run_id: str) -> tuple[Path, Path, Path]:
+    artifact_dir = (results_root / run_id).resolve()
+    return artifact_dir, artifact_dir / "workspace", artifact_dir / "final.md"
+
+
 def run_command(
     command: list[str],
     *,
@@ -161,11 +166,9 @@ def execute_run(
     results_root: Path,
     timeout_seconds: int,
 ) -> dict[str, Any]:
-    artifact_dir = results_root / item["run_id"]
-    workspace = artifact_dir / "workspace"
+    artifact_dir, workspace, final_path = resolve_run_paths(results_root, item["run_id"])
     artifact_dir.mkdir(parents=True, exist_ok=True)
     initialize_run_directory(workspace, results_root)
-    final_path = artifact_dir / "final.md"
     events_path = artifact_dir / "events.jsonl"
     codex = shutil.which("codex")
     if not codex:

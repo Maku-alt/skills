@@ -92,6 +92,19 @@ class HarnessTests(unittest.TestCase):
         self.assertEqual(resolved.name, "B0")
 
     @unittest.skipUnless(RUNNER_PATH.is_file(), "runner not implemented")
+    def test_run_artifact_paths_are_absolute_before_child_changes_directory(self) -> None:
+        runner = load_runner()
+        self.assertTrue(hasattr(runner, "resolve_run_paths"))
+
+        artifact, workspace, final = runner.resolve_run_paths(Path("relative-results"), "run-1")
+
+        self.assertTrue(artifact.is_absolute())
+        self.assertTrue(workspace.is_absolute())
+        self.assertTrue(final.is_absolute())
+        self.assertEqual(workspace.parent, artifact)
+        self.assertEqual(final.parent, artifact)
+
+    @unittest.skipUnless(RUNNER_PATH.is_file(), "runner not implemented")
     def test_safe_remove_tree_handles_read_only_files_inside_allowed_root(self) -> None:
         runner = load_runner()
         self.assertTrue(hasattr(runner, "safe_remove_tree"))
