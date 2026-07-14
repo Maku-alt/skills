@@ -80,6 +80,8 @@ def run_command(
         cwd=cwd,
         env=env,
         text=True,
+        encoding="utf-8",
+        errors="replace",
         capture_output=True,
         check=False,
         timeout=timeout,
@@ -213,8 +215,8 @@ def execute_run(
             env=environment,
             timeout=timeout_seconds,
         )
-        events_path.write_text(completed.stdout, encoding="utf-8")
-        (artifact_dir / "stderr.log").write_text(completed.stderr, encoding="utf-8")
+        events_path.write_text(completed.stdout or "", encoding="utf-8")
+        (artifact_dir / "stderr.log").write_text(completed.stderr or "", encoding="utf-8")
         exit_code = completed.returncode
     except subprocess.TimeoutExpired as error:
         status = "timeout"

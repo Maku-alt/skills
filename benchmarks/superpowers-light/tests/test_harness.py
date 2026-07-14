@@ -3,6 +3,7 @@ import json
 import os
 import stat
 import subprocess
+import sys
 import tempfile
 import unittest
 from pathlib import Path
@@ -115,6 +116,18 @@ class HarnessTests(unittest.TestCase):
             resolved = runner.resolve_codex_executable(executable)
 
             self.assertEqual(resolved, executable.resolve())
+
+    @unittest.skipUnless(RUNNER_PATH.is_file(), "runner not implemented")
+    def test_run_command_decodes_utf8_with_replacement_instead_of_cp1252(self) -> None:
+        runner = load_runner()
+
+        completed = runner.run_command(
+            [sys.executable, "-c", "import os; os.write(1, bytes([0x9d]))"],
+            cwd=ROOT,
+        )
+
+        self.assertIsInstance(completed.stdout, str)
+        self.assertIn("\ufffd", completed.stdout)
 
     @unittest.skipUnless(RUNNER_PATH.is_file(), "runner not implemented")
     def test_safe_remove_tree_handles_read_only_files_inside_allowed_root(self) -> None:
