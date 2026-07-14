@@ -3,6 +3,7 @@ config/
 docs/
 references/
 scripts/
+.worktrees/
 
 !skills/*/references/
 !skills/*/references/**
