@@ -43,6 +43,27 @@ def randomized_order(matrix: list[dict[str, Any]], seed: int) -> list[dict[str, 
     return ordered
 
 
+def infrastructure_failed_run_ids(results_root: Path) -> set[str]:
+    markers = (
+        "usage limit",
+        "requires a newer version of codex",
+        "authentication",
+    )
+    selected: set[str] = set()
+    if not results_root.exists():
+        return selected
+    for run_dir in results_root.iterdir():
+        metadata_path = run_dir / "run.json"
+        events_path = run_dir / "events.jsonl"
+        if not run_dir.is_dir() or not metadata_path.exists() or not events_path.exists():
+            continue
+        metadata = json.loads(metadata_path.read_text(encoding="utf-8"))
+        events = events_path.read_text(encoding="utf-8", errors="replace").lower()
+        if metadata.get("exit_code") != 0 and any(marker in events for marker in markers):
+            selected.add(metadata["run_id"])
+    return selected
+
+
 def sha256_text(value: str) -> str:
     return hashlib.sha256(value.encode("utf-8")).hexdigest()
 
@@ -254,6 +275,7 @@ def main() -> int:
     parser.add_argument("--timeout-seconds", type=int, default=1800)
     parser.add_argument("--codex-executable", type=Path)
     parser.add_argument("--pilot", action="store_true")
+    parser.add_argument("--retry-infrastructure-failures", action="store_true")
     args = parser.parse_args()
     codex_executable = resolve_codex_executable(args.codex_executable)
 
@@ -273,7 +295,12 @@ def main() -> int:
     else:
         matrix = randomized_order(build_matrix(evals), args.seed)
     args.results_root.mkdir(parents=True, exist_ok=True)
-    (args.results_root / "run-order.json").write_text(
+    order_name = "run-order.json"
+    if args.retry_infrastructure_failures:
+        failed_ids = infrastructure_failed_run_ids(args.results_root)
+        matrix = [item for item in matrix if item["run_id"] in failed_ids]
+        order_name = "retry-order.json"
+    (args.results_root / order_name).write_text(
         json.dumps(matrix, indent=2, ensure_ascii=False), encoding="utf-8"
     )
     with concurrent.futures.ThreadPoolExecutor(max_workers=args.max_workers) as executor:

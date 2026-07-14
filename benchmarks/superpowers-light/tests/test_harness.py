@@ -130,6 +130,29 @@ class HarnessTests(unittest.TestCase):
         self.assertIn("\ufffd", completed.stdout)
 
     @unittest.skipUnless(RUNNER_PATH.is_file(), "runner not implemented")
+    def test_retry_selection_includes_only_shared_infrastructure_failures(self) -> None:
+        runner = load_runner()
+        self.assertTrue(hasattr(runner, "infrastructure_failed_run_ids"))
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            cases = {
+                "valid-run": (0, "turn.completed"),
+                "quota-run": (1, "You've hit your usage limit"),
+                "task-failure": (1, "tests failed after task execution"),
+            }
+            for run_id, (exit_code, events) in cases.items():
+                run = root / run_id
+                run.mkdir()
+                (run / "run.json").write_text(
+                    json.dumps({"run_id": run_id, "exit_code": exit_code}), encoding="utf-8"
+                )
+                (run / "events.jsonl").write_text(events, encoding="utf-8")
+
+            selected = runner.infrastructure_failed_run_ids(root)
+
+            self.assertEqual(selected, {"quota-run"})
+
+    @unittest.skipUnless(RUNNER_PATH.is_file(), "runner not implemented")
     def test_safe_remove_tree_handles_read_only_files_inside_allowed_root(self) -> None:
         runner = load_runner()
         self.assertTrue(hasattr(runner, "safe_remove_tree"))
