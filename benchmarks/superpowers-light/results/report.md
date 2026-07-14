@@ -32,6 +32,10 @@ S1 perdió 20.234 puntos de calidad automática y 1.55 puntos sobre 10 en la rev
 
 En términos operativos: **retira el paquete como comportamiento universal, no las skills del disco**. Mantén selección contextual: planificación sí; brainstorming solo ante ambigüedad; multiagente solo con escala suficiente; bugfix explícito debe continuar sin una nueva ronda de aprobación.
 
+## Decisión de curación adoptada
+
+El 13 de julio de 2026 se decidió retirar del set activo las 13 skills de Obra Superpowers y conservarlas en `archive/`. La decisión prioriza un runtime más simple y el comportamiento nativo de Codex, aun cuando `writing-plans` ganó el subconjunto de planificación. Si se observa una regresión real en planes complejos, `writing-plans` es la primera candidata para una prueba de restauración aislada contra el modelo nativo con esfuerzo alto.
+
 ## Validez y límites
 
 - La prueba es ligera: dos repeticiones y un fixture pequeño. Sirve para decidir defaults, no para estimar una ventaja universal con precisión estadística.

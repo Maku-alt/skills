@@ -35,7 +35,7 @@ Tambien se versionan carpetas internas necesarias para que una skill funcione, c
 Algunas skills se mantienen como adaptaciones de fuentes externas:
 
 - Anthropic Skills: `pptx`, `docx`, `xlsx`, `pdf`, `frontend-design`, `skill-creator`, `mcp-builder`, `theme-factory`, `webapp-testing`, `doc-coauthoring`, `internal-comms`.
-- Obra Superpowers: `brainstorming`, `writing-plans`, `test-driven-development`, `systematic-debugging`, `verification-before-completion`, `using-git-worktrees`, `subagent-driven-development`, `requesting-code-review`, `receiving-code-review`, `executing-plans`, `finishing-a-development-branch`, `writing-skills`.
+- Obra Superpowers: retirada del set activo y conservada en `archive/` tras el benchmark ligero de julio de 2026. Consulta `benchmarks/superpowers-light/results/report.md`.
 - Skills locales o propias: analytics, Teradata y otras utilidades especificas del entorno.
 
 Cuando se actualiza desde upstream, adapta el lenguaje a Codex antes de sincronizar:
@@ -104,11 +104,6 @@ El catalogo completo esta en `catalog/skills-dictionary.md`.
 | `pdf` | `documents` | Extraer, completar o generar PDFs. |
 | `frontend-design` | `design` | Guiar interfaces web con alto criterio visual. |
 | `skill-creator` | `skills` | Crear, probar y empaquetar skills nuevas o existentes. |
-| `brainstorming` | `delivery` | Convertir una idea en diseno aprobado antes de implementar. |
-| `writing-plans` | `delivery` | Convertir un diseno en un plan de implementacion ejecutable. |
-| `subagent-driven-development` | `delivery` | Ejecutar planes con subagentes y revisiones por tarea. |
-| `test-driven-development` | `delivery` | Implementar cambios con ciclo red-green-refactor. |
-| `verification-before-completion` | `delivery` | Verificar antes de declarar un trabajo terminado. |
 
 ## Nota
 
