@@ -130,6 +130,23 @@ class HarnessTests(unittest.TestCase):
         self.assertIn("\ufffd", completed.stdout)
 
     @unittest.skipUnless(RUNNER_PATH.is_file(), "runner not implemented")
+    def test_codex_command_ignores_host_exec_policy_rules(self) -> None:
+        runner = load_runner()
+        command = runner.build_codex_command(
+            Path("codex.exe"), Path("workspace"), Path("final.md"), "Fix the bug"
+        )
+
+        self.assertIn("--ignore-rules", command)
+        self.assertIn("--dangerously-bypass-approvals-and-sandbox", command)
+
+    @unittest.skipUnless(RUNNER_PATH.is_file(), "runner not implemented")
+    def test_run_id_filter_selects_only_requested_runs(self) -> None:
+        runner = load_runner()
+        matrix = [{"run_id": "a"}, {"run_id": "b"}, {"run_id": "c"}]
+
+        self.assertEqual(runner.select_run_ids(matrix, ["c", "a"]), [matrix[0], matrix[2]])
+
+    @unittest.skipUnless(RUNNER_PATH.is_file(), "runner not implemented")
     def test_retry_selection_includes_only_shared_infrastructure_failures(self) -> None:
         runner = load_runner()
         self.assertTrue(hasattr(runner, "infrastructure_failed_run_ids"))

@@ -43,6 +43,13 @@ def randomized_order(matrix: list[dict[str, Any]], seed: int) -> list[dict[str, 
     return ordered
 
 
+def select_run_ids(
+    matrix: list[dict[str, Any]], requested_run_ids: list[str]
+) -> list[dict[str, Any]]:
+    requested = set(requested_run_ids)
+    return [item for item in matrix if item["run_id"] in requested]
+
+
 def infrastructure_failed_run_ids(results_root: Path) -> set[str]:
     markers = (
         "usage limit",
@@ -206,25 +213,7 @@ def execute_run(
     artifact_dir.mkdir(parents=True, exist_ok=True)
     initialize_run_directory(workspace, results_root)
     events_path = artifact_dir / "events.jsonl"
-    command = [
-        str(codex_executable),
-        "exec",
-        "--ignore-user-config",
-        "--ephemeral",
-        "--json",
-        "--skip-git-repo-check",
-        "-m",
-        MODEL,
-        "-c",
-        f'model_reasoning_effort="{REASONING_EFFORT}"',
-        "-s",
-        "workspace-write",
-        "-C",
-        str(workspace),
-        "-o",
-        str(final_path),
-        item["prompt"],
-    ]
+    command = build_codex_command(codex_executable, workspace, final_path, item["prompt"])
     environment = os.environ.copy()
     environment["CODEX_HOME"] = str(resolve_codex_home(homes_root, item["config"]))
     started = time.monotonic()
@@ -266,6 +255,30 @@ def execute_run(
     return metadata
 
 
+def build_codex_command(
+    codex_executable: Path, workspace: Path, final_path: Path, prompt: str
+) -> list[str]:
+    return [
+        str(codex_executable),
+        "exec",
+        "--ignore-user-config",
+        "--ignore-rules",
+        "--ephemeral",
+        "--json",
+        "--skip-git-repo-check",
+        "-m",
+        MODEL,
+        "-c",
+        f'model_reasoning_effort="{REASONING_EFFORT}"',
+        "--dangerously-bypass-approvals-and-sandbox",
+        "-C",
+        str(workspace),
+        "-o",
+        str(final_path),
+        prompt,
+    ]
+
+
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--homes-root", type=Path, required=True)
@@ -276,6 +289,7 @@ def main() -> int:
     parser.add_argument("--codex-executable", type=Path)
     parser.add_argument("--pilot", action="store_true")
     parser.add_argument("--retry-infrastructure-failures", action="store_true")
+    parser.add_argument("--run-id", action="append", default=[])
     args = parser.parse_args()
     codex_executable = resolve_codex_executable(args.codex_executable)
 
@@ -294,6 +308,8 @@ def main() -> int:
         ]
     else:
         matrix = randomized_order(build_matrix(evals), args.seed)
+    if args.run_id:
+        matrix = select_run_ids(matrix, args.run_id)
     args.results_root.mkdir(parents=True, exist_ok=True)
     order_name = "run-order.json"
     if args.retry_infrastructure_failures:

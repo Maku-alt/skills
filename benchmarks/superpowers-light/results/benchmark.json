@@ -10,7 +10,7 @@
       "parallel_audit"
     ],
     "runs_per_configuration": 2,
-    "complete": false
+    "complete": true
   },
   "runs": [
     {
@@ -74,17 +74,53 @@
       "configuration": "with_skill",
       "run_number": 1,
       "result": {
-        "pass_rate": null,
-        "passed": 0,
-        "failed": 0,
-        "total": 0,
-        "time_seconds": 2.406,
-        "tokens": 0,
-        "tool_calls": 0,
-        "errors": 1,
-        "status": "infrastructure_failure"
+        "pass_rate": 0.6833,
+        "passed": 6,
+        "failed": 1,
+        "total": 7,
+        "time_seconds": 33.172,
+        "tokens": 97928,
+        "tool_calls": 4,
+        "errors": 0,
+        "status": "valid"
       },
-      "expectations": [],
+      "expectations": [
+        {
+          "text": "Finds gold root cause: sql_injection",
+          "passed": false,
+          "evidence": "Insufficient root-cause evidence"
+        },
+        {
+          "text": "Finds gold root cause: path_traversal",
+          "passed": true,
+          "evidence": "Matched at least two root-cause terms"
+        },
+        {
+          "text": "Finds gold root cause: password_hash",
+          "passed": true,
+          "evidence": "Matched at least two root-cause terms"
+        },
+        {
+          "text": "Avoids unsupported extra actionable findings",
+          "passed": true,
+          "evidence": "Detected 3 severity-labelled candidates for 3 gold findings"
+        },
+        {
+          "text": "Assigns supported severity to matched findings",
+          "passed": true,
+          "evidence": "severity_hits=2, matched=2"
+        },
+        {
+          "text": "Provides exact file and line evidence",
+          "passed": true,
+          "evidence": "evidence_hits=2, matched=2"
+        },
+        {
+          "text": "The report is readable and bounded",
+          "passed": true,
+          "evidence": "Output length: 1647 characters"
+        }
+      ],
       "notes": []
     },
     {
@@ -148,124 +184,96 @@
       "configuration": "with_skill",
       "run_number": 2,
       "result": {
-        "pass_rate": null,
-        "passed": 0,
-        "failed": 0,
-        "total": 0,
-        "time_seconds": 2.218,
-        "tokens": 0,
-        "tool_calls": 0,
-        "errors": 1,
-        "status": "infrastructure_failure"
-      },
-      "expectations": [],
-      "notes": []
-    },
-    {
-      "eval_id": "bugfix",
-      "eval_name": "Bugfix",
-      "configuration": "without_skill",
-      "run_number": 1,
-      "result": {
-        "pass_rate": 0.05,
-        "passed": 1,
-        "failed": 4,
-        "total": 5,
-        "time_seconds": 44.344,
-        "tokens": 173081,
-        "tool_calls": 6,
-        "errors": 0,
-        "status": "valid"
-      },
-      "expectations": [
-        {
-          "text": "Public and hidden acceptance tests pass",
-          "passed": false,
-          "evidence": "Hidden test exit code is 0"
-        },
-        {
-          "text": "The root cause rejects every non-positive quantity with ValueError",
-          "passed": false,
-          "evidence": "Required guard not found"
-        },
-        {
-          "text": "The patch is narrowly scoped to checkout code and its tests",
-          "passed": false,
-          "evidence": "Changed files: []"
-        },
-        {
-          "text": "Verification evidence confirms public and hidden behavior",
-          "passed": false,
-          "evidence": "public=True, hidden=False"
-        },
-        {
-          "text": "The final handoff is concise and reports verification",
-          "passed": true,
-          "evidence": "Final response length: 519 characters"
-        }
-      ],
-      "notes": []
-    },
-    {
-      "eval_id": "bugfix",
-      "eval_name": "Bugfix",
-      "configuration": "with_skill",
-      "run_number": 1,
-      "result": {
-        "pass_rate": null,
-        "passed": 0,
-        "failed": 0,
-        "total": 0,
-        "time_seconds": 2.172,
-        "tokens": 0,
-        "tool_calls": 0,
-        "errors": 1,
-        "status": "infrastructure_failure"
-      },
-      "expectations": [],
-      "notes": []
-    },
-    {
-      "eval_id": "bugfix",
-      "eval_name": "Bugfix",
-      "configuration": "without_skill",
-      "run_number": 2,
-      "result": {
-        "pass_rate": 0.05,
-        "passed": 1,
-        "failed": 4,
-        "total": 5,
-        "time_seconds": 39.406,
-        "tokens": 136713,
+        "pass_rate": 0.3667,
+        "passed": 5,
+        "failed": 2,
+        "total": 7,
+        "time_seconds": 40.969,
+        "tokens": 151240,
         "tool_calls": 5,
         "errors": 0,
         "status": "valid"
       },
       "expectations": [
         {
-          "text": "Public and hidden acceptance tests pass",
+          "text": "Finds gold root cause: sql_injection",
           "passed": false,
+          "evidence": "Insufficient root-cause evidence"
+        },
+        {
+          "text": "Finds gold root cause: path_traversal",
+          "passed": false,
+          "evidence": "Insufficient root-cause evidence"
+        },
+        {
+          "text": "Finds gold root cause: password_hash",
+          "passed": true,
+          "evidence": "Matched at least two root-cause terms"
+        },
+        {
+          "text": "Avoids unsupported extra actionable findings",
+          "passed": true,
+          "evidence": "Detected 3 severity-labelled candidates for 3 gold findings"
+        },
+        {
+          "text": "Assigns supported severity to matched findings",
+          "passed": true,
+          "evidence": "severity_hits=1, matched=1"
+        },
+        {
+          "text": "Provides exact file and line evidence",
+          "passed": true,
+          "evidence": "evidence_hits=1, matched=1"
+        },
+        {
+          "text": "The report is readable and bounded",
+          "passed": true,
+          "evidence": "Output length: 2025 characters"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": "bugfix",
+      "eval_name": "Bugfix",
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.85,
+        "passed": 4,
+        "failed": 1,
+        "total": 5,
+        "time_seconds": 29.063,
+        "tokens": 120204,
+        "tool_calls": 3,
+        "errors": 0,
+        "status": "valid"
+      },
+      "expectations": [
+        {
+          "text": "Public and hidden acceptance tests pass",
+          "passed": true,
           "evidence": "Hidden test exit code is 0"
         },
         {
           "text": "The root cause rejects every non-positive quantity with ValueError",
-          "passed": false,
-          "evidence": "Required guard not found"
+          "passed": true,
+          "evidence": "Patch contains quantity <= 0 and raises ValueError"
         },
         {
           "text": "The patch is narrowly scoped to checkout code and its tests",
           "passed": false,
-          "evidence": "Changed files: []"
+          "evidence": "Changed files: ['src/__pycache__/checkout.cpython-311.pyc', 'src/checkout.py', 'tests/__pycache__/test_checkout.cpython-311.pyc', 'tests/test_checkout.py']"
         },
         {
           "text": "Verification evidence confirms public and hidden behavior",
-          "passed": false,
-          "evidence": "public=True, hidden=False"
+          "passed": true,
+          "evidence": "public=True, hidden=True"
         },
         {
           "text": "The final handoff is concise and reports verification",
           "passed": true,
-          "evidence": "Final response length: 557 characters"
+          "evidence": "Final response length: 437 characters"
         }
       ],
       "notes": []
@@ -274,15 +282,15 @@
       "eval_id": "bugfix",
       "eval_name": "Bugfix",
       "configuration": "with_skill",
-      "run_number": 2,
+      "run_number": 1,
       "result": {
         "pass_rate": 0.05,
         "passed": 1,
         "failed": 4,
         "total": 5,
-        "time_seconds": 60.031,
-        "tokens": 276526,
-        "tool_calls": 13,
+        "time_seconds": 34.297,
+        "tokens": 135304,
+        "tool_calls": 3,
         "errors": 0,
         "status": "valid"
       },
@@ -310,7 +318,97 @@
         {
           "text": "The final handoff is concise and reports verification",
           "passed": true,
-          "evidence": "Final response length: 494 characters"
+          "evidence": "Final response length: 103 characters"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": "bugfix",
+      "eval_name": "Bugfix",
+      "configuration": "without_skill",
+      "run_number": 2,
+      "result": {
+        "pass_rate": 0.85,
+        "passed": 4,
+        "failed": 1,
+        "total": 5,
+        "time_seconds": 28.813,
+        "tokens": 122288,
+        "tool_calls": 3,
+        "errors": 0,
+        "status": "valid"
+      },
+      "expectations": [
+        {
+          "text": "Public and hidden acceptance tests pass",
+          "passed": true,
+          "evidence": "Hidden test exit code is 0"
+        },
+        {
+          "text": "The root cause rejects every non-positive quantity with ValueError",
+          "passed": true,
+          "evidence": "Patch contains quantity <= 0 and raises ValueError"
+        },
+        {
+          "text": "The patch is narrowly scoped to checkout code and its tests",
+          "passed": false,
+          "evidence": "Changed files: ['src/__pycache__/checkout.cpython-311.pyc', 'src/checkout.py', 'tests/__pycache__/test_checkout.cpython-311.pyc', 'tests/test_checkout.py']"
+        },
+        {
+          "text": "Verification evidence confirms public and hidden behavior",
+          "passed": true,
+          "evidence": "public=True, hidden=True"
+        },
+        {
+          "text": "The final handoff is concise and reports verification",
+          "passed": true,
+          "evidence": "Final response length: 673 characters"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": "bugfix",
+      "eval_name": "Bugfix",
+      "configuration": "with_skill",
+      "run_number": 2,
+      "result": {
+        "pass_rate": 0.05,
+        "passed": 1,
+        "failed": 4,
+        "total": 5,
+        "time_seconds": 36.187,
+        "tokens": 124080,
+        "tool_calls": 10,
+        "errors": 0,
+        "status": "valid"
+      },
+      "expectations": [
+        {
+          "text": "Public and hidden acceptance tests pass",
+          "passed": false,
+          "evidence": "Hidden test exit code is 0"
+        },
+        {
+          "text": "The root cause rejects every non-positive quantity with ValueError",
+          "passed": false,
+          "evidence": "Required guard not found"
+        },
+        {
+          "text": "The patch is narrowly scoped to checkout code and its tests",
+          "passed": false,
+          "evidence": "Changed files: []"
+        },
+        {
+          "text": "Verification evidence confirms public and hidden behavior",
+          "passed": false,
+          "evidence": "public=True, hidden=False"
+        },
+        {
+          "text": "The final handoff is concise and reports verification",
+          "passed": true,
+          "evidence": "Final response length: 473 characters"
         }
       ],
       "notes": []
@@ -386,17 +484,63 @@
       "configuration": "with_skill",
       "run_number": 1,
       "result": {
-        "pass_rate": null,
-        "passed": 0,
+        "pass_rate": 1.0,
+        "passed": 9,
         "failed": 0,
-        "total": 0,
-        "time_seconds": 2.359,
-        "tokens": 0,
-        "tool_calls": 0,
-        "errors": 1,
-        "status": "infrastructure_failure"
+        "total": 9,
+        "time_seconds": 175.25,
+        "tokens": 517643,
+        "tool_calls": 15,
+        "errors": 0,
+        "status": "valid"
       },
-      "expectations": [],
+      "expectations": [
+        {
+          "text": "Finds gold root cause: cumulative_refund",
+          "passed": true,
+          "evidence": "Matched at least two root-cause terms"
+        },
+        {
+          "text": "Finds gold root cause: predictable_token",
+          "passed": true,
+          "evidence": "Matched at least two root-cause terms"
+        },
+        {
+          "text": "Finds gold root cause: missing_expiry",
+          "passed": true,
+          "evidence": "Matched at least two root-cause terms"
+        },
+        {
+          "text": "Finds gold root cause: arbitrary_export_path",
+          "passed": true,
+          "evidence": "Matched at least two root-cause terms"
+        },
+        {
+          "text": "Finds gold root cause: csv_injection",
+          "passed": true,
+          "evidence": "Matched at least two root-cause terms"
+        },
+        {
+          "text": "Avoids unsupported extra actionable findings",
+          "passed": true,
+          "evidence": "Detected 5 severity-labelled candidates for 5 gold findings"
+        },
+        {
+          "text": "Covers all three independent audit areas",
+          "passed": true,
+          "evidence": "files_covered=True, subagent_signal=False"
+        },
+        {
+          "text": "Integrates findings into a deduplicated prioritized report",
+          "passed": true,
+          "evidence": "matched=5, candidates=5"
+        },
+        {
+          "text": "The report is readable and bounded",
+          "passed": true,
+          "evidence": "Output length: 6336 characters"
+        }
+      ],
       "notes": []
     },
     {
@@ -535,17 +679,78 @@
       "configuration": "without_skill",
       "run_number": 1,
       "result": {
-        "pass_rate": null,
-        "passed": 0,
-        "failed": 0,
-        "total": 0,
-        "time_seconds": 2.328,
-        "tokens": 0,
-        "tool_calls": 0,
-        "errors": 1,
-        "status": "infrastructure_failure"
+        "pass_rate": 0.8062,
+        "passed": 10,
+        "failed": 2,
+        "total": 12,
+        "time_seconds": 177.515,
+        "tokens": 487598,
+        "tool_calls": 25,
+        "errors": 0,
+        "status": "valid"
       },
-      "expectations": [],
+      "expectations": [
+        {
+          "text": "Plan covers exact decimal arithmetic",
+          "passed": true,
+          "evidence": "Required terms: ('decimal', 'float')"
+        },
+        {
+          "text": "Plan covers currency precision and rounding",
+          "passed": true,
+          "evidence": "Required terms: ('round', 'minor unit')"
+        },
+        {
+          "text": "Plan covers provider failure behavior",
+          "passed": true,
+          "evidence": "Required terms: ('provider', 'timeout', 'unavailable')"
+        },
+        {
+          "text": "Plan covers idempotent execution",
+          "passed": true,
+          "evidence": "Required terms: ('idempoten',)"
+        },
+        {
+          "text": "Plan covers cumulative refund limit",
+          "passed": false,
+          "evidence": "Required terms: ('cumulative', 'captured')"
+        },
+        {
+          "text": "Plan covers exchange-rate audit trail",
+          "passed": true,
+          "evidence": "Required terms: ('audit', 'rate', 'quote')"
+        },
+        {
+          "text": "Plan covers tests and verification",
+          "passed": true,
+          "evidence": "Required terms: ('test', 'verify')"
+        },
+        {
+          "text": "Plan covers rollout or migration",
+          "passed": true,
+          "evidence": "Required terms: ('rollout', 'migration')"
+        },
+        {
+          "text": "Plan makes explicit technical decisions",
+          "passed": true,
+          "evidence": "currency/decimal/provider/idempotency decisions"
+        },
+        {
+          "text": "Plan names exact files, tests, and commands",
+          "passed": true,
+          "evidence": "src/, tests/, and python command references"
+        },
+        {
+          "text": "Plan addresses concurrency, rollback, and failure risks",
+          "passed": false,
+          "evidence": "risk terms present"
+        },
+        {
+          "text": "Plan is structured and bounded",
+          "passed": true,
+          "evidence": "Output length: 12826 characters"
+        }
+      ],
       "notes": []
     },
     {
@@ -634,17 +839,78 @@
       "configuration": "without_skill",
       "run_number": 2,
       "result": {
-        "pass_rate": null,
-        "passed": 0,
-        "failed": 0,
-        "total": 0,
-        "time_seconds": 2.234,
-        "tokens": 0,
-        "tool_calls": 0,
-        "errors": 1,
-        "status": "infrastructure_failure"
+        "pass_rate": 0.9125,
+        "passed": 10,
+        "failed": 2,
+        "total": 12,
+        "time_seconds": 125.578,
+        "tokens": 185423,
+        "tool_calls": 23,
+        "errors": 0,
+        "status": "valid"
       },
-      "expectations": [],
+      "expectations": [
+        {
+          "text": "Plan covers exact decimal arithmetic",
+          "passed": true,
+          "evidence": "Required terms: ('decimal', 'float')"
+        },
+        {
+          "text": "Plan covers currency precision and rounding",
+          "passed": true,
+          "evidence": "Required terms: ('round', 'minor unit')"
+        },
+        {
+          "text": "Plan covers provider failure behavior",
+          "passed": false,
+          "evidence": "Required terms: ('provider', 'timeout', 'unavailable')"
+        },
+        {
+          "text": "Plan covers idempotent execution",
+          "passed": true,
+          "evidence": "Required terms: ('idempoten',)"
+        },
+        {
+          "text": "Plan covers cumulative refund limit",
+          "passed": true,
+          "evidence": "Required terms: ('cumulative', 'captured')"
+        },
+        {
+          "text": "Plan covers exchange-rate audit trail",
+          "passed": true,
+          "evidence": "Required terms: ('audit', 'rate', 'quote')"
+        },
+        {
+          "text": "Plan covers tests and verification",
+          "passed": false,
+          "evidence": "Required terms: ('test', 'verify')"
+        },
+        {
+          "text": "Plan covers rollout or migration",
+          "passed": true,
+          "evidence": "Required terms: ('rollout', 'migration')"
+        },
+        {
+          "text": "Plan makes explicit technical decisions",
+          "passed": true,
+          "evidence": "currency/decimal/provider/idempotency decisions"
+        },
+        {
+          "text": "Plan names exact files, tests, and commands",
+          "passed": true,
+          "evidence": "src/, tests/, and python command references"
+        },
+        {
+          "text": "Plan addresses concurrency, rollback, and failure risks",
+          "passed": true,
+          "evidence": "risk terms present"
+        },
+        {
+          "text": "Plan is structured and bounded",
+          "passed": true,
+          "evidence": "Output length: 10143 characters"
+        }
+      ],
       "notes": []
     },
     {
@@ -730,47 +996,47 @@
   ],
   "run_summary": {
     "with_skill": {
-      "valid_runs": 4,
-      "infrastructure_failures": 4,
+      "valid_runs": 8,
+      "infrastructure_failures": 0,
       "quality": {
-        "mean": 70.312,
-        "stddev": 38.935,
+        "mean": 61.406,
+        "stddev": 38.262,
         "min": 5.0,
         "max": 100.0
       },
       "time_seconds": {
-        "mean": 131.601,
-        "stddev": 46.225,
-        "min": 60.031,
+        "mean": 98.281,
+        "stddev": 64.151,
+        "min": 33.172,
         "max": 189.218
       },
       "tokens": {
-        "mean": 344223.25,
-        "stddev": 130273.318,
-        "min": 243421.0,
+        "mean": 265820.25,
+        "stddev": 171104.495,
+        "min": 97928.0,
         "max": 568016.0
       }
     },
     "without_skill": {
-      "valid_runs": 6,
-      "infrastructure_failures": 2,
+      "valid_runs": 8,
+      "infrastructure_failures": 0,
       "quality": {
-        "mean": 53.542,
-        "stddev": 40.669,
-        "min": 5.0,
+        "mean": 81.64,
+        "stddev": 19.46,
+        "min": 34.58,
         "max": 100.0
       },
       "time_seconds": {
-        "mean": 51.971,
-        "stddev": 17.538,
-        "min": 37.406,
-        "max": 80.75
+        "mean": 73.631,
+        "stddev": 50.145,
+        "min": 28.813,
+        "max": 177.515
       },
       "tokens": {
-        "mean": 139562.0,
-        "stddev": 43051.163,
+        "mean": 180386.375,
+        "stddev": 122760.514,
         "min": 93415.0,
-        "max": 214352.0
+        "max": 487598.0
       }
     }
   },
