@@ -35,6 +35,7 @@ Tambien se versionan carpetas internas necesarias para que una skill funcione, c
 Algunas skills se mantienen como adaptaciones de fuentes externas:
 
 - Anthropic Skills: `pptx`, `docx`, `xlsx`, `pdf`, `frontend-design`, `skill-creator`, `mcp-builder`, `theme-factory`, `webapp-testing`, `doc-coauthoring`, `internal-comms`.
+- Impeccable: `impeccable`, instalado con la CLI oficial desde `pbakaus/impeccable` y conservado como build especifico para Codex. La version incorporada es `4.0.2` y se distribuye bajo Apache-2.0.
 - Obra Superpowers: retirada del set activo y conservada en `archive/` tras el benchmark ligero de julio de 2026. Consulta `benchmarks/superpowers-light/results/report.md`.
 - Skills locales o propias: analytics, Teradata y otras utilidades especificas del entorno.
 
@@ -44,6 +45,12 @@ Cuando se actualiza desde upstream, adapta el lenguaje a Codex antes de sincroni
 - evitar instrucciones especificas de Claude cuando no apliquen;
 - mantener rutas reales de la version instalada;
 - validar que los scripts referenciados existan.
+
+Para refrescar Impeccable, instala primero el build global oficial de Codex y luego importa `~/.agents/skills/impeccable` sobre `skills/impeccable`:
+
+```powershell
+npx --yes impeccable@latest install -y --providers=codex --scope=global --no-hooks
+```
 
 ## Sincronizar Con Codex
 
@@ -103,6 +110,7 @@ El catalogo completo esta en `catalog/skills-dictionary.md`.
 | `xlsx` | `analytics` | Crear, editar o analizar archivos Excel. |
 | `pdf` | `documents` | Extraer, completar o generar PDFs. |
 | `frontend-design` | `design` | Guiar interfaces web con alto criterio visual. |
+| `impeccable` | `design` | Disenar, auditar y pulir interfaces frontend con flujos especializados y deteccion de antipatrones. |
 | `skill-creator` | `skills` | Crear, probar y empaquetar skills nuevas o existentes. |
 
 ## Nota

@@ -9,6 +9,7 @@ Catalogo del set activo en `skills/`. Las fechas indican la ultima revision en e
 | `docx` | `2026-06-16` | `anthropic/skills` | `documents` | Create, edit and inspect Word documents with formatting, tracked changes and render awareness. |
 | `frontend-design` | `2026-06-16` | `anthropic/skills` | `design` | Guidance for distinctive visual design when building or reshaping web UI. |
 | `frontend-slides` | `2026-06-09` | `external/adapted` | `documents` | Build strong HTML slide decks or convert PPTX into web-first slides. |
+| `impeccable` | `2026-07-24` | `pbakaus/impeccable` | `design`, `frontend`, `ux`, `accessibility` | Codex-specific Impeccable 4.0.2 build for designing, critiquing, auditing and polishing production frontend interfaces. |
 | `internal-comms` | `2026-06-16` | `anthropic/skills` | `documents` | Draft internal updates, FAQs, project reports and similar communications. |
 | `jupyter-notebook` | `2026-03-04` | `local` | `analytics` | Scaffold or edit notebooks for experiments and tutorials. |
 | `mcp-builder` | `2026-06-16` | `anthropic/skills` | `automation` | Build MCP servers and related integration patterns. |
