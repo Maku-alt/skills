@@ -19,5 +19,6 @@ Catalogo del set activo en `skills/`. Las fechas indican la ultima revision en e
 | `skill-creator` | `2026-06-16` | `anthropic/skills` | `skills` | Create, evaluate and package skills from a need, draft or existing workflow. |
 | `teradata-debug-sp` | `2026-01-09` | `local` | `analytics` | Generate Teradata stored procedures with debug and error handling. |
 | `theme-factory` | `2026-06-16` | `anthropic/skills` | `documents` | Apply reusable visual themes to decks, docs or landing pages. |
+| `travel-advisor` | `2026-07-27` | `local` | `travel`, `orchestration`, `audit` | Audit travel dossiers, coordinate bounded specialist research, classify readiness and prioritize decisions without executing purchases. |
 | `webapp-testing` | `2026-06-16` | `anthropic/skills` | `testing` | Validate local web apps and browser-facing artifacts. |
 | `xlsx` | `2026-06-16` | `anthropic/skills` | `analytics` | Create, edit, recalculate or analyze spreadsheet files. |

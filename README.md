@@ -112,6 +112,7 @@ El catalogo completo esta en `catalog/skills-dictionary.md`.
 | `frontend-design` | `design` | Guiar interfaces web con alto criterio visual. |
 | `impeccable` | `design` | Disenar, auditar y pulir interfaces frontend con flujos especializados y deteccion de antipatrones. |
 | `skill-creator` | `skills` | Crear, probar y empaquetar skills nuevas o existentes. |
+| `travel-advisor` | `travel` | Auditar expedientes de viaje y coordinar investigacion especializada sin ejecutar compras. |
 
 ## Nota
 

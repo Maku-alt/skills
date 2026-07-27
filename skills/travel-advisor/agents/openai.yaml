@@ -1,0 +1,4 @@
+interface:
+  display_name: "Travel Advisor"
+  short_description: "Audita y coordina expedientes de viaje"
+  default_prompt: "Usa $travel-advisor para auditar este expediente de viaje y priorizar los siguientes pasos."
