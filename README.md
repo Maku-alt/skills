@@ -35,7 +35,7 @@ Tambien se versionan carpetas internas necesarias para que una skill funcione, c
 Algunas skills se mantienen como adaptaciones de fuentes externas:
 
 - Anthropic Skills: `pptx`, `docx`, `xlsx`, `pdf`, `frontend-design`, `skill-creator`, `mcp-builder`, `theme-factory`, `webapp-testing`, `doc-coauthoring`, `internal-comms`.
-- Impeccable: `impeccable`, instalado con la CLI oficial desde `pbakaus/impeccable` y conservado como build especifico para Codex. La version incorporada es `4.0.2` y se distribuye bajo Apache-2.0.
+- Impeccable: `impeccable`, instalado con la CLI oficial desde `pbakaus/impeccable` y conservado como build especifico para Codex. La version incorporada es `4.0.4` y se distribuye bajo Apache-2.0.
 - Obra Superpowers: retirada del set activo y conservada en `archive/` tras el benchmark ligero de julio de 2026. Consulta `benchmarks/superpowers-light/results/report.md`.
 - Skills locales o propias: analytics, Teradata y otras utilidades especificas del entorno.
 
